@@ -1,9 +1,11 @@
-
+const debug = require('./utils/debug.js');
 
 exports.timestamp = function(req, res) {
-    //console.log("req", req);
-    console.log("req.query=", req.query);
-    console.log("req.body=", req.body);
-    //console.log("res", res);
+    if (debug.enabled) {
+        //debug.info("req", req);
+        debug.info("req.query=", req.query);
+        debug.info("req.body=", req.body);
+        //debug.info("res", res);
+    }
     res.send(`${Date.now()}`);
 }
